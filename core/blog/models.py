@@ -10,10 +10,10 @@ def user_directory_path(instance, filename):
 
 class Post(models.Model):
 
-    class PostObjects(models.Manager):
-        # Filter the post by status
-        def get_queryset(self):
-            return super().get_queryset().filter(status='published')
+    # class PostObjects(models.Manager):
+    #     # Filter the post by status
+    #     # def get_queryset(self):
+    #     #     return super().get_queryset().filter(status='published')
 
     options = (
         ('draft', 'Draft'),
@@ -33,8 +33,8 @@ class Post(models.Model):
 
     # Give the option to publish or draft the post
     status = models.CharField(max_length=10, choices=options, default='draft')
-    objects = models.Manager()
-    postobjects = PostObjects()
+    #objects = models.Manager() # The default manager
+   # postobjects = PostObjects() # Custom manager for published posts
 
     # Ordering the posts by published date
     class Meta:
