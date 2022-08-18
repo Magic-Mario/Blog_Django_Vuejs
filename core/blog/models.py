@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 
 def user_directory_path(instance, filename):
     # file will be uploaded to MEDIA_ROOT/blog/<title>/<filename>
-    return 'blog/{instance.title}/{filename}'
+    return f'blog/{instance.title}/{filename}'
 
 
 class Post(models.Model):
